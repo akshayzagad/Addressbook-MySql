@@ -1,9 +1,3 @@
-mysql> insert into address_book(fname,lname,address,city,phonenum,email,zip)values('Yogesh','Dhangar','Pune','Whagholi',70381030,'AkshayZagade@62',411006);
-Query OK, 1 row affected (0.01 sec)
-
-mysql> insert into address_book(fname,lname,address,city,phonenum,email,zip)values('Akshay','Zagade','Pune','Kharadi',70381030,'AkshayZagade@62',411006);
-Query OK, 1 row affected (0.01 sec)
-
 mysql> select * from address_book;
 +--------+---------+---------+----------+----------+-----------------+--------+
 | fname  | lname   | address | city     | phonenum | email           | zip    |
@@ -23,3 +17,37 @@ mysql> select city from address_book;
 | Kharadi  |
 +----------+
 3 rows in set (0.00 sec)
+
+mysql> select count(*) from Address_Book where City='Pune' ;
++----------+
+| count(*) |
++----------+
+|        0 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> select count(*) from Address_Book where City='Yerwada' ;
++----------+
+| count(*) |
++----------+
+|        1 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> select * from address_book;
++--------+---------+---------+----------+----------+-----------------+--------+
+| fname  | lname   | address | city     | phonenum | email           | zip    |
++--------+---------+---------+----------+----------+-----------------+--------+
+| Suraj  | Garud   | Pune    | Yerwada  | 70381030 | AkshayZagade@62 | 411006 |
+| Yogesh | Dhangar | Pune    | Whagholi | 70381030 | AkshayZagade@62 | 411006 |
+| Akshay | Zagade  | Pune    | Kharadi  | 70381030 | AkshayZagade@62 | 411006 |
++--------+---------+---------+----------+----------+-----------------+--------+
+3 rows in set (0.00 sec)
+
+mysql> select count(*) from Address_Book where Address='Pune' ;
++----------+
+| count(*) |
++----------+
+|        3 |
++----------+
+1 row in set (0.00 sec)
