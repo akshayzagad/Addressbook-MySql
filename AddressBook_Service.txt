@@ -1,26 +1,25 @@
-mysql> insert into address_book(fname,lname,address,city,phonenum,email,zip)values('Suraj','Garud','Pune','Yerwada',70381030,'AkshayZagade@62',411006);
+mysql> insert into address_book(fname,lname,address,city,phonenum,email,zip)values('Yogesh','Dhangar','Pune','Whagholi',70381030,'AkshayZagade@62',411006);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into address_book(fname,lname,address,city,phonenum,email,zip)values('Akshay','Zagade','Pune','Kharadi',70381030,'AkshayZagade@62',411006);
 Query OK, 1 row affected (0.01 sec)
 
 mysql> select * from address_book;
-+--------+--------+---------+---------+----------+-----------------+--------+
-| fname  | lname  | address | city    | phonenum | email           | zip    |
-+--------+--------+---------+---------+----------+-----------------+--------+
-| Yogesh | Zagade | Pune    | Yerwada | 70381030 | AkshayZagade@62 | 411006 |
-| Suraj  | Garud  | Pune    | Yerwada | 70381030 | AkshayZagade@62 | 411006 |
-+--------+--------+---------+---------+----------+-----------------+--------+
-2 rows in set (0.00 sec)
++--------+---------+---------+----------+----------+-----------------+--------+
+| fname  | lname   | address | city     | phonenum | email           | zip    |
++--------+---------+---------+----------+----------+-----------------+--------+
+| Suraj  | Garud   | Pune    | Yerwada  | 70381030 | AkshayZagade@62 | 411006 |
+| Yogesh | Dhangar | Pune    | Whagholi | 70381030 | AkshayZagade@62 | 411006 |
+| Akshay | Zagade  | Pune    | Kharadi  | 70381030 | AkshayZagade@62 | 411006 |
++--------+---------+---------+----------+----------+-----------------+--------+
+3 rows in set (0.00 sec)
 
-mysql> delete Address_book where fname ='yogesh';
-ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'where fname ='yogesh'' at line 1
-mysql> delete Address_book where fname ='Yogesh';
-ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'where fname ='Yogesh'' at line 1
-mysql> delete from  Address_book where fname ='yogesh';
-Query OK, 1 row affected (0.01 sec)
-
-mysql> select * from address_book;
-+-------+-------+---------+---------+----------+-----------------+--------+
-| fname | lname | address | city    | phonenum | email           | zip    |
-+-------+-------+---------+---------+----------+-----------------+--------+
-| Suraj | Garud | Pune    | Yerwada | 70381030 | AkshayZagade@62 | 411006 |
-+-------+-------+---------+---------+----------+-----------------+--------+
-1 row in set (0.00 sec)
+mysql> select city from address_book;
++----------+
+| city     |
++----------+
+| Yerwada  |
+| Whagholi |
+| Kharadi  |
++----------+
+3 rows in set (0.00 sec)
