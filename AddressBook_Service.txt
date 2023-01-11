@@ -1,23 +1,49 @@
 
-UC 11->Add A person in both family and friend
+UC 13->Do Opration From UC->6,7 and 10.
 
 
+mysql> ^C
+mysql> select count(*) from Address_Book where Address='Pune';
+ERROR 1046 (3D000): No database selected
+mysql> select count(*) from  addressbook_service.address_book where Address='Pune';
++----------+
+| count(*) |
++----------+
+|        4 |
++----------+
+1 row in set (0.00 sec)
 
-mysql>  INSERT INTO  addressbook_service.address_book VALUES('Ranjit', 'Patil', 'Kholhapur', 'Pune', '6565332', 'Ranjit@Gmail.com', '411555', 'maharatra', 'Friend');
-Query OK, 1 row affected (0.01 sec)
+mysql> select count(*) from  addressbook_service.address_book where Address'Kholhapur';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''Kholhapur'' at line 1
+mysql> select count(*) from  addressbook_service.address_book where Address='Kholhapur';
++----------+
+| count(*) |
++----------+
+|        2 |
++----------+
+1 row in set (0.00 sec)
 
-mysql>  INSERT INTO  addressbook_service.address_book VALUES('Ranjit', 'Patil', 'Kholhapur', 'Pune', '6565332', 'Ranjit@Gmail.com', '411555', 'maharatra', 'familyfriend');
-Query OK, 1 row affected (0.00 sec)
-
-mysql>  SELECT * from addressbook_service.address_book;
+mysql> select * from  addressbook_service.address_book order by city ABC;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ABC' at line 1
+mysql> select * from  addressbook_service.address_book order by city ASC;
 +--------+---------+-----------+----------+----------+------------------+--------+-----------+--------------+
 | fname  | lname   | address   | city     | phonenum | email            | zip    | state     | type         |
 +--------+---------+-----------+----------+----------+------------------+--------+-----------+--------------+
-| Suraj  | Garud   | Pune      | Yerwada  | 70381030 | AkshayZagade@62  | 411006 | MH        | Friend       |
-| Yogesh | Dhangar | Pune      | Whagholi | 70381030 | AkshayZagade@62  | 411006 | MH        | familyfriend |
 | Akshay | Zagade  | Pune      | Kharadi  | 70381030 | AkshayZagade@62  | 411006 | MH        | Brother      |
-| Akshay | Zagade  | Pune      | Yerwada  | 70381030 | AkshayZagade@62  | 411006 | MH        | Brother      |
 | Ranjit | Patil   | Kholhapur | Pune     |  6565332 | Ranjit@Gmail.com | 411555 | maharatra | Friend       |
 | Ranjit | Patil   | Kholhapur | Pune     |  6565332 | Ranjit@Gmail.com | 411555 | maharatra | familyfriend |
+| Yogesh | Dhangar | Pune      | Whagholi | 70381030 | AkshayZagade@62  | 411006 | MH        | familyfriend |
+| Suraj  | Garud   | Pune      | Yerwada  | 70381030 | AkshayZagade@62  | 411006 | MH        | Friend       |
+| Akshay | Zagade  | Pune      | Yerwada  | 70381030 | AkshayZagade@62  | 411006 | MH        | Brother      |
 +--------+---------+-----------+----------+----------+------------------+--------+-----------+--------------+
 6 rows in set (0.00 sec)
+
+mysql>  SELECT COUNT(*) FROM  addressbook_service.address_book GROUP BY type;
++----------+
+| COUNT(*) |
++----------+
+|        2 |
+|        2 |
+|        2 |
++----------+
+3 rows in set (0.00 sec)
