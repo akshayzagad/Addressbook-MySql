@@ -1,13 +1,23 @@
 
-UC 10->Select By Count
+UC 11->Add A person in both family and friend
 
 
-mysql>  SELECT COUNT(*) FROM  addressbook_service.address_book GROUP BY type;
-+----------+
-| COUNT(*) |
-+----------+
-|        1 |
-|        1 |
-|        2 |
-+----------+
-3 rows in set (0.00 sec)
+
+mysql>  INSERT INTO  addressbook_service.address_book VALUES('Ranjit', 'Patil', 'Kholhapur', 'Pune', '6565332', 'Ranjit@Gmail.com', '411555', 'maharatra', 'Friend');
+Query OK, 1 row affected (0.01 sec)
+
+mysql>  INSERT INTO  addressbook_service.address_book VALUES('Ranjit', 'Patil', 'Kholhapur', 'Pune', '6565332', 'Ranjit@Gmail.com', '411555', 'maharatra', 'familyfriend');
+Query OK, 1 row affected (0.00 sec)
+
+mysql>  SELECT * from addressbook_service.address_book;
++--------+---------+-----------+----------+----------+------------------+--------+-----------+--------------+
+| fname  | lname   | address   | city     | phonenum | email            | zip    | state     | type         |
++--------+---------+-----------+----------+----------+------------------+--------+-----------+--------------+
+| Suraj  | Garud   | Pune      | Yerwada  | 70381030 | AkshayZagade@62  | 411006 | MH        | Friend       |
+| Yogesh | Dhangar | Pune      | Whagholi | 70381030 | AkshayZagade@62  | 411006 | MH        | familyfriend |
+| Akshay | Zagade  | Pune      | Kharadi  | 70381030 | AkshayZagade@62  | 411006 | MH        | Brother      |
+| Akshay | Zagade  | Pune      | Yerwada  | 70381030 | AkshayZagade@62  | 411006 | MH        | Brother      |
+| Ranjit | Patil   | Kholhapur | Pune     |  6565332 | Ranjit@Gmail.com | 411555 | maharatra | Friend       |
+| Ranjit | Patil   | Kholhapur | Pune     |  6565332 | Ranjit@Gmail.com | 411555 | maharatra | familyfriend |
++--------+---------+-----------+----------+----------+------------------+--------+-----------+--------------+
+6 rows in set (0.00 sec)
